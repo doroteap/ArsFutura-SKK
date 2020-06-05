@@ -1,0 +1,35 @@
+<h1> Check out these:</h1>
+ 
+<table>
+<tr>
+    <th>Departure</th>
+    <th>Arrival</th>
+    <th>Seats left</th>
+    <th>Operator</th>
+    <th></th>
+</tr>
+ 
+  <% @trips.sort_by(& :departure).each do |trip| %>
+    <tr>
+        <td><%= trip.departure%></td>
+        <td><%= trip.arrival%></td>
+        <td><%= trip.available_seats%></td>
+        <td><%= trip.operator.name%></td>
+        <% if user_signed_in? && trip.available_seats > 0 %>
+            <td><%= link_to 'Buy', edit_trip_path(trip)%></td>
+        <% end%>
+        
+    </tr>
+  <% end %> 
+  
+</table>
+
+<% if user_signed_in?  %>
+    <%= link_to 'Check my tickets', user_tickets_path(current_user) %>
+<% end%>
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<h1>You are here to buy ticket! (&#10004)</h1>
+
+<%= form_with(model: @trip, local: true) do |form| %>
+    <p><b>You want to buy this trip:</b></p>
+        <th></th>
+        <p>Departure: <%= @trip.departure%><p>
+        <p>Arrival: <%= @trip.arrival%></p>
+        <p>Available seats: <%= @trip.available_seats%></p>
+        <p>Operator: <%= @trip.operator.name%></p>   
+        <hr>
+
+    <% @trip.update(available_seats: @trip.available_seats-1) %>
+    <%= form.submit "BUY", data: { confirm: 'Good decision to travel!' } %>
+
+<% end %>
+
+<%= label_tag :card_holder %><br>
+<%= text_field_tag  'name', nil, placeholder: current_user.email.split('@').first.titleize  %><br>
+<%= label_tag :card_number %><br>
+<%= number_field_tag :card_number%>

@@ -1,0 +1,24 @@
+<h1> My tickets: </h1>
+<table>
+<tr>
+    <th>Departure</th>
+    <th>Arrival</th>
+    <th>Operator</th>
+    <th></th>
+</tr>
+ 
+  <% @tickets.each do |ticket| %>
+    <tr>
+        <td><%= ticket.trip.departure%></td>
+        <td><%= ticket.trip.arrival%></td>
+        <td><%= ticket.trip.operator.name%></td>
+        <% if ticket.trip.departure > Time.now + 60*60  %>
+            <td><%=  link_to "Cancel", [ticket.user, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end%>
+        
+    </tr>
+  <% end %> 
+  
+</table>
+
+<%=  link_to "Back", trips_path%>

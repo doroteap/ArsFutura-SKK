@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure: 2020-06-04 01:06:24
+  arrival: 2020-06-04 01:06:24
+  available_seats: 1
+  operator: one
+
+two:
+  departure: 2020-06-04 01:06:24
+  arrival: 2020-06-04 01:06:24
+  available_seats: 1
+  operator: two

@@ -1,0 +1,21 @@
+<h1> Tu bi trebao biti popis svih prijevoznika: </h1>
+
+<h1> Operators</h1>
+ 
+<table>
+  <tr>
+    <th>Ime prijevoznika </th>
+    #<th> Prijevozi </th>
+  </tr>
+ 
+  <% @operators.each do |operator| %>
+    <tr>
+      <td><%= operator.trips.each do |trip| %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+
+
+
+
